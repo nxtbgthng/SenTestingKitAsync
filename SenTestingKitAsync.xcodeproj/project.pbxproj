@@ -56,6 +56,7 @@
 		F6B78918169B545C00034660 /* SenTestingKitAsyncTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SenTestingKitAsyncTests.h; sourceTree = "<group>"; };
 		F6B78919169B545C00034660 /* SenTestingKitAsyncTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SenTestingKitAsyncTests.m; sourceTree = "<group>"; };
 		F6B78928169B64D800034660 /* SenTestingKitAsync.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = SenTestingKitAsync.podspec; sourceTree = "<group>"; };
+		F6B7892C169B670600034660 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +85,7 @@
 		F6B788ED169B545C00034660 = {
 			isa = PBXGroup;
 			children = (
+				F6B7892C169B670600034660 /* README.md */,
 				F6B78928169B64D800034660 /* SenTestingKitAsync.podspec */,
 				F6B788FD169B545C00034660 /* SenTestingKitAsync */,
 				F6B78912169B545C00034660 /* SenTestingKitAsyncTests */,
@@ -409,6 +411,7 @@
 				F6B7891F169B545C00034660 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F6B78920169B545C00034660 /* Build configuration list for PBXNativeTarget "SenTestingKitAsyncTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +420,7 @@
 				F6B78922169B545C00034660 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
