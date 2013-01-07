@@ -43,4 +43,4 @@ All other tests are done with the normal set of tools as usually. For example, y
 
 Finally, because this is just an extension to the build in testing framework, we benefit from the error logs. If an test did not succeed, it is highlighted just as the other synchronus tests.
 
-![Screenshot of Xcode showing a filed test.](./images/log.png)
+![Screenshot of Xcode showing a filed test.](https://raw.github.com/nxtbgthng/SenTestingKitAsync/master/images/log.png)
