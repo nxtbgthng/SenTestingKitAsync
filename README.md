@@ -1,6 +1,6 @@
 #SenTestingKitAsync
 
-__SenTestingKitAsync__ is an extension to the build in unit testing framework in Xcode, that enables real asynchronous testing. While other patterns (or frameworks) for asynchronous testing are usualy waiting in a while loop on the main thread, this extension breaks up the synchronous call stack of the test suite. With this in hand, testing of delegate-based APIs or other asynchronus methods is easy.
+__SenTestingKitAsync__ is an extension to the built-in unit testing framework in Xcode, that enables real asynchronous testing. While other patterns (or frameworks) for asynchronous testing are usualy waiting in a while loop on the main thread, this extension breaks up the synchronous call stack of the test suite. With this in hand, testing of delegate-based APIs or other asynchronus methods is easy.
 
 ## Getting started
 
