@@ -14,7 +14,7 @@ There are only 4 steps, which have to be done in addition to _normal_ unit tests
 	If you want to do it by hand, just include `SenTestingKitAsync.h` and `SenTestingKitAsync.m` in your test target.
 
 2. Import the header:
-   <pre>#import <SenTestingKitAsync/SenTestingKitAsync.h></pre>
+   <pre>#import &lt;SenTestingKitAsync/SenTestingKitAsync.h&gt;</pre>
 
 3. Let the test method end with `Async`:
 	<pre>- (void)testSelectorAsync
