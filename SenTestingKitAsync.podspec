@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = "SenTestingKitAsync"
-  s.version      = "1.0"
+  s.version      = "1.0.2"
   s.summary      = "Extension for the SenTestingKit for asynchronous testing."
   s.homepage     = "https://github.com/nxtbgthng/SenTestingKitAsync"
   s.license      = {
         :type => 'BSD',
         :text => <<-LICENSE
-        Copyright (c) 2012 nxtbgthng GmbH.
+        Copyright (c) 2012, 2013 nxtbgthng GmbH.
         All rights reserved.
         
         Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
         LICENSE
     }
   s.author       = { "Tobias Kräntzer" => "tobias@nxtbgthng.com" }
-  s.source       = { :git => "https://github.com/nxtbgthng/SenTestingKitAsync.git", :tag => "1.0" }
+  s.source       = { :git => "https://github.com/nxtbgthng/SenTestingKitAsync.git", :tag => "1.0.2" }
   s.source_files = 'SenTestingKitAsync/SenTestingKitAsync.{h,m}'
   s.frameworks   = 'SenTestingKit'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(inherited)" "$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
