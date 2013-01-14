@@ -1,12 +1,12 @@
-#SenTestingKitAsync
+# SenTestingKitAsync
 
-__SenTestingKitAsync__ is an extension to the build in unit testing framework in Xcode, that enables real asynchronous testing. While other patterns (or frameworks) for asynchronous testing are usualy waiting in a while loop on the main thread, this extension breaks up the synchronous call stack of the test suite. With this in hand, testing of delegate-based APIs or other asynchronus methods is easy.
+__SenTestingKitAsync__ is an extension to the built-in unit testing framework in Xcode that enables real asynchronous testing. While other patterns (or frameworks) for asynchronous testing usually just wait in a while loop on the main thread, this extension breaks up the synchronous call stack of the test suite. With this in hand, testing of delegate-based APIs or other asynchronus methods is easy.
 
 ## Getting started
 
-There are only 4 steps, which have to be done in addition to _normal_ unit tests with `SenTestingKit`:
+There are only 4 steps which have to be done in addition to _normal_ unit tests with `SenTestingKit`:
 
-1. The extension has to be linked into your test target (best by using cocoapods):
+1. The extension has to be linked into your test target (best by using [CocoaPods](http://cocoapods.org)):
 	<pre>
 	target :test, :exclusive => true do
 	    pod 'SenTestingKitAsync', '~> 1.0'
@@ -22,14 +22,14 @@ There are only 4 steps, which have to be done in addition to _normal_ unit tests
     	[self performSelector:@selector(mySelector) withObject:nil afterDelay:2.0];
 	}</pre>
 
-4. Tell the test runner, when a test succeeds:
+4. Tell the test runner when a test succeeds:
 	<pre>- (void)mySelector
 	{
 		STSuccess();
 	}</pre>
-	This is needed, because the test runner waits until a test did fail (by calling one of the macros like `STFail(…)` or `STAssertEqualObjects(…)`) or succeeds (by calling `STSuccess()`). If none of these happend, the test runner waits forever.
+	This is needed because the test runner waits until a test explicitly fails (by calling one of the macros like `STFail(…)` or `STAssertEqualObjects(…)`) or succeeds (by calling `STSuccess()`). If none of these occur, the test runner waits forever.
 
-All other tests are done with the normal set of tools as usual. For example, you can check the arguments of an delegate call:
+All other tests are done with the normal set of tools as usual. For example, you can check the arguments of a delegate call:
 
 <pre>
 - (void)testSelectorAsync
@@ -43,16 +43,16 @@ All other tests are done with the normal set of tools as usual. For example, you
 	STSuccess();
 }</pre>
 
-Finally, because this is just an extension to the build in testing framework, we benefit from the error logs. If an test did not succeed, it is highlighted just as the other synchronus tests.
+Finally, because this is just an extension to the built-in testing framework, we benefit from the error logs. If a test did not succeed, it is highlighted just as the other synchronus tests.
 
-![Screenshot of Xcode showing a filed test.](https://raw.github.com/nxtbgthng/SenTestingKitAsync/master/images/log.png)
+![Screenshot of Xcode showing a failed test.](https://raw.github.com/nxtbgthng/SenTestingKitAsync/master/images/log.png)
 
 ## Additional macros
 
-In addition to the exsiting macros like `STAssertTrue(…)` or `STAssertEqualObjects(…)` this extension introduces two more macros:
+In addition to the exsiting macros like `STAssertTrue(…)` or `STAssertEqualObjects(…)`, this extension introduces two more macros:
 
-- `STFailAfter(timeout, description, …)`: This macro starts a timer and let the test fail with the given description, if nothing else (`STAssert…` or `STSuccess`) has been called.
-- `STSuccess()`: This macro has to be called to indicate that the test did succeed. If this won't be called and no other failure occured, the test runs forever.
+- `STFailAfter(timeout, description, …)`: This macro starts a timer and lets the test fail with the given description, if nothing else (`STAssert…` or `STSuccess`) has been called.
+- `STSuccess()`: This macro must be called to indicate that the test did succeed. If you don't call this and no other failure occured, the test runs forever.
 
 ---
 
