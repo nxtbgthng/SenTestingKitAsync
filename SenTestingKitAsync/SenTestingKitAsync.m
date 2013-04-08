@@ -85,6 +85,9 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
         [self setUp];
         [aRun start];
         
+        self.testRun = aRun;
+        self.completionHandler = aCompletionHandler;
+        
         @try {
             [[self invocation] invoke];
         }
@@ -98,9 +101,8 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
             [self performSelector:@selector(logException:) withObject:exception];
             [self setValue:nil forKey:@"run"];
             aCompletionHandler(aRun);
-        } else {
-            self.testRun = aRun;
-            self.completionHandler = aCompletionHandler;
+            self.testRun = nil;
+            self.completionHandler = nil;
         }
         
     } else {
