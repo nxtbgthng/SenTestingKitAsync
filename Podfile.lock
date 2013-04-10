@@ -1,0 +1,17 @@
+PODS:
+  - OCMock (2.0.1)
+  - SenTestingKitAsync (1.0.2)
+
+DEPENDENCIES:
+  - OCMock (~> 2.0)
+  - SenTestingKitAsync (from `SenTestingKitAsync.podspec`)
+
+EXTERNAL SOURCES:
+  SenTestingKitAsync:
+    :podspec: SenTestingKitAsync.podspec
+
+SPEC CHECKSUMS:
+  OCMock: 77a9c4c57af6bf258a537d34cf09abf422affede
+  SenTestingKitAsync: 037d9154ad70291092579a6e517c7d6f6f7376f4
+
+COCOAPODS: 0.18.0
