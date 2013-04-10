@@ -85,6 +85,9 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
         [self setUp];
         [aRun start];
         
+        self.testRun = aRun;
+        self.completionHandler = aCompletionHandler;
+        
         @try {
             [[self invocation] invoke];
         }
@@ -98,9 +101,8 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
             [self performSelector:@selector(logException:) withObject:exception];
             [self setValue:nil forKey:@"run"];
             aCompletionHandler(aRun);
-        } else {
-            self.testRun = aRun;
-            self.completionHandler = aCompletionHandler;
+            self.testRun = nil;
+            self.completionHandler = nil;
         }
         
     } else {
@@ -188,21 +190,29 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
     
     NSEnumerator *testEnumerator = [[self valueForKey:@"tests"] objectEnumerator];
     
-    __block void (^runTest)(SenTest *) = ^(SenTest *aTest){
-        if (aTest) {
-            [aTest runWithCompletionHandler:^(SenTestRun *run) {
-                [(SenTestSuiteRun *)aTestRun addTestRun:run];
-                runTest([testEnumerator nextObject]);
-            }];
-        } else {
-            [aTestRun stop];
-            [self tearDown];
-            
-            aCompletionHandler(aTestRun);
-        }
-    };
+    [self performTestRun:aTestRun
+      withTestEnumerator:testEnumerator
+       completionHandler:aCompletionHandler];
+}
+
+- (void)performTestRun:(SenTestRun *)aTestRun
+    withTestEnumerator:(NSEnumerator *)aTestEnumerator
+     completionHandler:(SenTestCompletionHandler)aCompletionHandler
+{
+    SenTest *aTest = [aTestEnumerator nextObject];
     
-    runTest([testEnumerator nextObject]);
+    if (aTest) {
+        [aTest runWithCompletionHandler:^(SenTestRun *run) {
+            [(SenTestSuiteRun *)aTestRun addTestRun:run];
+            [self performTestRun:aTestRun
+              withTestEnumerator:aTestEnumerator
+               completionHandler:aCompletionHandler];
+        }];
+    } else {
+        [aTestRun stop];
+        [self tearDown];
+        aCompletionHandler(aTestRun);
+    }
 }
 
 @end

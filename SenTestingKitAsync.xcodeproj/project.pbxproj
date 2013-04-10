@@ -11,12 +11,16 @@
 		F6B78901169B545C00034660 /* SenTestingKitAsync.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6B78900169B545C00034660 /* SenTestingKitAsync.h */; };
 		F6B78903169B545C00034660 /* SenTestingKitAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B78902169B545C00034660 /* SenTestingKitAsync.m */; };
 		F6B7890B169B545C00034660 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B7890A169B545C00034660 /* SenTestingKit.framework */; };
-		F6B7890D169B545C00034660 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B7890C169B545C00034660 /* UIKit.framework */; };
 		F6B7890E169B545C00034660 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B788FB169B545C00034660 /* Foundation.framework */; };
-		F6B78911169B545C00034660 /* libSenTestingKitAsync.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B788F8169B545C00034660 /* libSenTestingKitAsync.a */; };
+		F6B78911169B545C00034660 /* libSenTestingKitAsynciOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B788F8169B545C00034660 /* libSenTestingKitAsynciOS.a */; };
 		F6B78917169B545C00034660 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6B78915169B545C00034660 /* InfoPlist.strings */; };
 		F6B7891A169B545C00034660 /* SenTestingKitAsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B78919169B545C00034660 /* SenTestingKitAsyncTests.m */; };
 		F6B78927169B608400034660 /* SenTestingKitAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B78902169B545C00034660 /* SenTestingKitAsync.m */; };
+		F6F77D4F1712EAA9008727C6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B7890A169B545C00034660 /* SenTestingKit.framework */; };
+		F6F77D7D1712F334008727C6 /* SenTestingKitAsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B78919169B545C00034660 /* SenTestingKitAsyncTests.m */; };
+		F6F77D7F1712F655008727C6 /* SenTestingKitAsync.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6B78900169B545C00034660 /* SenTestingKitAsync.h */; };
+		F6F77D811712F760008727C6 /* libSenTestingKitAsyncMacOSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F77D6E1712F27C008727C6 /* libSenTestingKitAsyncMacOSX.a */; };
+		F6F77D821712F772008727C6 /* SenTestingKitAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B78902169B545C00034660 /* SenTestingKitAsync.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,36 +31,54 @@
 			remoteGlobalIDString = F6B788F7169B545C00034660;
 			remoteInfo = SenTestingKitAsync;
 		};
+		F6F77D7A1712F31F008727C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6B788EF169B545C00034660 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6F77D6D1712F27C008727C6;
+			remoteInfo = SenTestingKitAsyncMacOSX;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		F6B788F6169B545C00034660 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "include/${PRODUCT_NAME}";
+			dstPath = "include/${PROJECT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
 				F6B78901169B545C00034660 /* SenTestingKitAsync.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F6F77D7E1712F643008727C6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PROJECT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				F6F77D7F1712F655008727C6 /* SenTestingKitAsync.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F6B788F8169B545C00034660 /* libSenTestingKitAsync.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSenTestingKitAsync.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6B788F8169B545C00034660 /* libSenTestingKitAsynciOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSenTestingKitAsynciOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B788FB169B545C00034660 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F6B788FF169B545C00034660 /* SenTestingKitAsync-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SenTestingKitAsync-Prefix.pch"; sourceTree = "<group>"; };
 		F6B78900169B545C00034660 /* SenTestingKitAsync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SenTestingKitAsync.h; sourceTree = "<group>"; };
 		F6B78902169B545C00034660 /* SenTestingKitAsync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SenTestingKitAsync.m; sourceTree = "<group>"; };
 		F6B78909169B545C00034660 /* SenTestingKitAsyncTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SenTestingKitAsyncTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B7890A169B545C00034660 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		F6B7890C169B545C00034660 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		F6B78914169B545C00034660 /* SenTestingKitAsyncTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SenTestingKitAsyncTests-Info.plist"; sourceTree = "<group>"; };
 		F6B78916169B545C00034660 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F6B78918169B545C00034660 /* SenTestingKitAsyncTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SenTestingKitAsyncTests.h; sourceTree = "<group>"; };
 		F6B78919169B545C00034660 /* SenTestingKitAsyncTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SenTestingKitAsyncTests.m; sourceTree = "<group>"; };
 		F6B78928169B64D800034660 /* SenTestingKitAsync.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = SenTestingKitAsync.podspec; sourceTree = "<group>"; };
 		F6B7892C169B670600034660 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		F6F77D4E1712EAA9008727C6 /* SenTestingKitAsyncTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SenTestingKitAsyncTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6F77D6E1712F27C008727C6 /* libSenTestingKitAsyncMacOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSenTestingKitAsyncMacOSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +95,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6B7890B169B545C00034660 /* SenTestingKit.framework in Frameworks */,
-				F6B7890D169B545C00034660 /* UIKit.framework in Frameworks */,
 				F6B7890E169B545C00034660 /* Foundation.framework in Frameworks */,
-				F6B78911169B545C00034660 /* libSenTestingKitAsync.a in Frameworks */,
+				F6B78911169B545C00034660 /* libSenTestingKitAsynciOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6F77D4A1712EAA9008727C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6F77D811712F760008727C6 /* libSenTestingKitAsyncMacOSX.a in Frameworks */,
+				F6F77D4F1712EAA9008727C6 /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6F77D6B1712F27C008727C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +134,10 @@
 		F6B788F9169B545C00034660 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F6B788F8169B545C00034660 /* libSenTestingKitAsync.a */,
+				F6B788F8169B545C00034660 /* libSenTestingKitAsynciOS.a */,
 				F6B78909169B545C00034660 /* SenTestingKitAsyncTests.octest */,
+				F6F77D4E1712EAA9008727C6 /* SenTestingKitAsyncTests.octest */,
+				F6F77D6E1712F27C008727C6 /* libSenTestingKitAsyncMacOSX.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,7 +147,6 @@
 			children = (
 				F6B788FB169B545C00034660 /* Foundation.framework */,
 				F6B7890A169B545C00034660 /* SenTestingKit.framework */,
-				F6B7890C169B545C00034660 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,10 +190,20 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		F6F77D6C1712F27C008727C6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		F6B788F7169B545C00034660 /* SenTestingKitAsync */ = {
+		F6B788F7169B545C00034660 /* SenTestingKitAsynciOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F6B7891D169B545C00034660 /* Build configuration list for PBXNativeTarget "SenTestingKitAsync" */;
+			buildConfigurationList = F6B7891D169B545C00034660 /* Build configuration list for PBXNativeTarget "SenTestingKitAsynciOS" */;
 			buildPhases = (
 				F6B788F4169B545C00034660 /* Sources */,
 				F6B788F5169B545C00034660 /* Frameworks */,
@@ -165,14 +213,14 @@
 			);
 			dependencies = (
 			);
-			name = SenTestingKitAsync;
+			name = SenTestingKitAsynciOS;
 			productName = SenTestingKitAsync;
-			productReference = F6B788F8169B545C00034660 /* libSenTestingKitAsync.a */;
+			productReference = F6B788F8169B545C00034660 /* libSenTestingKitAsynciOS.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		F6B78908169B545C00034660 /* SenTestingKitAsyncTests */ = {
+		F6B78908169B545C00034660 /* SenTestingKitAsyncTestsiOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F6B78920169B545C00034660 /* Build configuration list for PBXNativeTarget "SenTestingKitAsyncTests" */;
+			buildConfigurationList = F6B78920169B545C00034660 /* Build configuration list for PBXNativeTarget "SenTestingKitAsyncTestsiOS" */;
 			buildPhases = (
 				F6B78904169B545C00034660 /* Sources */,
 				F6B78905169B545C00034660 /* Frameworks */,
@@ -184,10 +232,47 @@
 			dependencies = (
 				F6B78910169B545C00034660 /* PBXTargetDependency */,
 			);
-			name = SenTestingKitAsyncTests;
+			name = SenTestingKitAsyncTestsiOS;
 			productName = SenTestingKitAsyncTests;
 			productReference = F6B78909169B545C00034660 /* SenTestingKitAsyncTests.octest */;
 			productType = "com.apple.product-type.bundle";
+		};
+		F6F77D4D1712EAA9008727C6 /* SenTestingKitAsyncTestsMacOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6F77D601712EAA9008727C6 /* Build configuration list for PBXNativeTarget "SenTestingKitAsyncTestsMacOSX" */;
+			buildPhases = (
+				F6F77D491712EAA9008727C6 /* Sources */,
+				F6F77D4A1712EAA9008727C6 /* Frameworks */,
+				F6F77D4B1712EAA9008727C6 /* Resources */,
+				F6F77D4C1712EAA9008727C6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F6F77D7B1712F31F008727C6 /* PBXTargetDependency */,
+			);
+			name = SenTestingKitAsyncTestsMacOSX;
+			productName = SenTestingKitAsyncTests;
+			productReference = F6F77D4E1712EAA9008727C6 /* SenTestingKitAsyncTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		F6F77D6D1712F27C008727C6 /* SenTestingKitAsyncMacOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6F77D761712F27C008727C6 /* Build configuration list for PBXNativeTarget "SenTestingKitAsyncMacOSX" */;
+			buildPhases = (
+				F6F77D6A1712F27C008727C6 /* Sources */,
+				F6F77D6B1712F27C008727C6 /* Frameworks */,
+				F6F77D6C1712F27C008727C6 /* Headers */,
+				F6F77D7E1712F643008727C6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SenTestingKitAsyncMacOSX;
+			productName = SenTestingKitAsync;
+			productReference = F6F77D6E1712F27C008727C6 /* libSenTestingKitAsyncMacOSX.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -210,8 +295,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F6B788F7169B545C00034660 /* SenTestingKitAsync */,
-				F6B78908169B545C00034660 /* SenTestingKitAsyncTests */,
+				F6B788F7169B545C00034660 /* SenTestingKitAsynciOS */,
+				F6F77D6D1712F27C008727C6 /* SenTestingKitAsyncMacOSX */,
+				F6B78908169B545C00034660 /* SenTestingKitAsyncTestsiOS */,
+				F6F77D4D1712EAA9008727C6 /* SenTestingKitAsyncTestsMacOSX */,
 			);
 		};
 /* End PBXProject section */
@@ -225,10 +312,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F6F77D4B1712EAA9008727C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		F6B78907169B545C00034660 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		F6F77D4C1712EAA9008727C6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -261,13 +368,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F6F77D491712EAA9008727C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6F77D7D1712F334008727C6 /* SenTestingKitAsyncTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6F77D6A1712F27C008727C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6F77D821712F772008727C6 /* SenTestingKitAsync.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		F6B78910169B545C00034660 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F6B788F7169B545C00034660 /* SenTestingKitAsync */;
+			target = F6B788F7169B545C00034660 /* SenTestingKitAsynciOS */;
 			targetProxy = F6B7890F169B545C00034660 /* PBXContainerItemProxy */;
+		};
+		F6F77D7B1712F31F008727C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6F77D6D1712F27C008727C6 /* SenTestingKitAsyncMacOSX */;
+			targetProxy = F6F77D7A1712F31F008727C6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -372,7 +500,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SenTestingKitAsync/SenTestingKitAsync-Prefix.pch";
 				INFOPLIST_FILE = "SenTestingKitAsyncTests/SenTestingKitAsyncTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = SenTestingKitAsyncTests;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -387,8 +516,99 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SenTestingKitAsync/SenTestingKitAsync-Prefix.pch";
 				INFOPLIST_FILE = "SenTestingKitAsyncTests/SenTestingKitAsyncTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = SenTestingKitAsyncTests;
 				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		F6F77D611712EAA9008727C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SenTestingKitAsync/SenTestingKitAsync-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "SenTestingKitAsyncTests/SenTestingKitAsyncTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = SenTestingKitAsyncTests;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		F6F77D621712EAA9008727C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SenTestingKitAsync/SenTestingKitAsync-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "SenTestingKitAsyncTests/SenTestingKitAsyncTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = SenTestingKitAsyncTests;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		F6F77D771712F27C008727C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SenTestingKitAsync/SenTestingKitAsync-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F6F77D781712F27C008727C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SenTestingKitAsync/SenTestingKitAsync-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -404,7 +624,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F6B7891D169B545C00034660 /* Build configuration list for PBXNativeTarget "SenTestingKitAsync" */ = {
+		F6B7891D169B545C00034660 /* Build configuration list for PBXNativeTarget "SenTestingKitAsynciOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F6B7891E169B545C00034660 /* Debug */,
@@ -413,11 +633,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F6B78920169B545C00034660 /* Build configuration list for PBXNativeTarget "SenTestingKitAsyncTests" */ = {
+		F6B78920169B545C00034660 /* Build configuration list for PBXNativeTarget "SenTestingKitAsyncTestsiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F6B78921169B545C00034660 /* Debug */,
 				F6B78922169B545C00034660 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6F77D601712EAA9008727C6 /* Build configuration list for PBXNativeTarget "SenTestingKitAsyncTestsMacOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6F77D611712EAA9008727C6 /* Debug */,
+				F6F77D621712EAA9008727C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6F77D761712F27C008727C6 /* Build configuration list for PBXNativeTarget "SenTestingKitAsyncMacOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6F77D771712F27C008727C6 /* Debug */,
+				F6F77D781712F27C008727C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

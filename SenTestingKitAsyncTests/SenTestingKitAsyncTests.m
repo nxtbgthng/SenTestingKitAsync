@@ -52,4 +52,9 @@
     STAssertEqualObjects(value, @(3), @"Expecting the number '3'.");
 }
 
+- (void)testFailImmediatelyAsync
+{
+    STFail(@"Fail immediately.");
+}
+
 @end
