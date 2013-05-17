@@ -54,6 +54,30 @@ In addition to the exsiting macros like `STAssertTrue(…)` or `STAssertEqualObj
 - `STFailAfter(timeout, description, …)`: This macro starts a timer and lets the test fail with the given description, if nothing else (`STAssert…` or `STSuccess`) has been called.
 - `STSuccess()`: This macro must be called to indicate that the test did succeed. If you don't call this and no other failure occured, the test runs forever.
 
+## Asynchronous set up and tear down of test cases
+
+If the setup needed by you test is also handled asynchronous, you can now do this with the extension to SenTestCase. Simply implement `-[SenTest setUpWithCompletionHandler:]` or `-[SenTest tearDownWithCompletionHandler:]` in you test case and do the setup (or tear down). If you are done with that, call the completion handler (and do not forget to call the setup or tear down of super).
+
+```
+- (void)setUpWithCompletionHandler:(void(^)())handler
+{
+    [super setUpWithCompletionHandler:^{
+        // Your set up
+        handler();
+    }];
+}
+
+- (void)tearDownWithCompletionHandler:(void (^)())handler
+{
+    [super tearDownWithCompletionHandler:^{
+        // Your tear down
+        handler();
+    }];
+}
+```
+
+Because there is no timeout or error catching, you have to be sure, that your implementation that is used for set up and tear down is well tested. In case of an error exit the test with an assertion. 
+
 ---
 
 Copyright (c) 2012, 2013 nxtbgthng GmbH.

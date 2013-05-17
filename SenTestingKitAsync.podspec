@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SenTestingKitAsync"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "Extension for the SenTestingKit for asynchronous testing."
   s.homepage     = "https://github.com/nxtbgthng/SenTestingKitAsync"
   s.license      = {
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
         LICENSE
     }
   s.author       = { "Tobias Kräntzer" => "tobias@nxtbgthng.com" }
-  s.source       = { :git => "https://github.com/nxtbgthng/SenTestingKitAsync.git", :tag => "1.0.3" }
+  s.source       = { :git => "https://github.com/nxtbgthng/SenTestingKitAsync.git", :tag => "1.0.4" }
   s.source_files = 'SenTestingKitAsync/SenTestingKitAsync.{h,m}'
   s.frameworks   = 'SenTestingKit'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(inherited)" "$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
