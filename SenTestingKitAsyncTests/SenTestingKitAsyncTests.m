@@ -14,7 +14,7 @@
 
 - (void)setUpWithCompletionHandler:(void(^)())handler
 {
-    __weak SenTestingKitAsyncTests *weak = self;
+    __unsafe_unretained SenTestingKitAsyncTests *weak = self;
     [super setUpWithCompletionHandler:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             weak.timestamp = [NSDate date];
