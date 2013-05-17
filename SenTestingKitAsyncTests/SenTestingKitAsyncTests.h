@@ -9,5 +9,5 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 @interface SenTestingKitAsyncTests : SenTestCase
-
+@property (nonatomic, strong) NSDate *timestamp;
 @end

@@ -12,6 +12,31 @@
 
 @implementation SenTestingKitAsyncTests
 
+- (void)setUpWithCompletionHandler:(void(^)())handler
+{
+    __weak SenTestingKitAsyncTests *weak = self;
+    [super setUpWithCompletionHandler:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weak.timestamp = [NSDate date];
+            handler();
+        });
+    }];
+}
+
+- (void)tearDownWithCompletionHandler:(void (^)())handler
+{
+    [super tearDownWithCompletionHandler:^{
+        handler();
+    }];
+}
+
+#pragma mark Tests
+
+- (void)testAsyncSetUp
+{
+    STAssertNotNil(self.timestamp, nil);
+}
+
 - (void)testExample;
 {
     STFail(@"Normal test are working as expected.");

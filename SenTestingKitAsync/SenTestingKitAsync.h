@@ -21,3 +21,8 @@ atLine:__LINE__ \
 withDescription:@"%@", STComposeString(description, ##__VA_ARGS__)])]; \
 }); \
 } while(0)
+
+@interface SenTest (AsyncExtension)
+- (void)setUpWithCompletionHandler:(void(^)())handler;
+- (void)tearDownWithCompletionHandler:(void(^)())handler;
+@end
