@@ -91,7 +91,7 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
 
 - (void)performTest:(SenTestRun *)aRun withCompletionHandler:(SenTestCompletionHandler)aCompletionHandler;
 {
-    __weak SenTestCase *weak = self;
+    __unsafe_unretained SenTestCase *weak = self;
     
     [self setUpWithCompletionHandler:^{
        
