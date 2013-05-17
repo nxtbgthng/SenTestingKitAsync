@@ -35,6 +35,20 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
 + (SenTestSuite *)specifiedTestSuite;
 @end
 
+@implementation SenTest (AsyncExtension)
+
+- (void)setUpWithCompletionHandler:(void(^)())handler
+{
+    handler();
+}
+
+- (void)tearDownWithCompletionHandler:(void(^)())handler
+{
+    handler();
+}
+
+@end
+
 @implementation SenTest (Async)
 
 - (void)runWithCompletionHandler:(SenTestCompletionHandler)aCompletionHandler;
@@ -77,59 +91,62 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
 
 - (void)performTest:(SenTestRun *)aRun withCompletionHandler:(SenTestCompletionHandler)aCompletionHandler;
 {
-    if ([NSStringFromSelector([[self invocation] selector]) hasSuffix:@"Async"]) {
-        
+    __weak SenTestCase *weak = self;
+    
+    [self setUpWithCompletionHandler:^{
+       
         NSException *exception = nil;
         
-        [self setValue:aRun forKey:@"run"];
-        [self setUp];
+        [weak setValue:aRun forKey:@"run"];
+        [weak setUp];
         [aRun start];
         
-        self.testRun = aRun;
-        self.completionHandler = aCompletionHandler;
-        
-        @try {
-            [[self invocation] invoke];
-        }
-        @catch (NSException *anException) {
-            exception = anException;
-        }
-        
-        if (exception != nil) {
+        if ([NSStringFromSelector([[weak invocation] selector]) hasSuffix:@"Async"]) {
+            weak.testRun = aRun;
+            weak.completionHandler = aCompletionHandler;
+            
+            @try {
+                [[weak invocation] invoke];
+            }
+            @catch (NSException *anException) {
+                exception = anException;
+            }
+            
+            if (exception != nil) {
+                [aRun stop];
+                [weak tearDownWithCompletionHandler:^{
+                    [weak tearDown];
+                    [weak performSelector:@selector(logException:) withObject:exception];
+                    [weak setValue:nil forKey:@"run"];
+                    aCompletionHandler(aRun);
+                    weak.testRun = nil;
+                    weak.completionHandler = nil;
+                }];
+            }
+            
+        } else {
+            @try {
+                [[weak invocation] invoke];
+            }
+            @catch (NSException *anException) {
+                exception = anException;
+            }
+            
             [aRun stop];
-            [self tearDown];
-            [self performSelector:@selector(logException:) withObject:exception];
-            [self setValue:nil forKey:@"run"];
-            aCompletionHandler(aRun);
-            self.testRun = nil;
-            self.completionHandler = nil;
+            
+            [weak tearDownWithCompletionHandler:^{
+                [weak tearDown];
+                
+                if (exception != nil) {
+                    [weak performSelector:@selector(logException:) withObject:exception];
+                }
+                
+                [weak setValue:nil forKey:@"run"];
+                
+                aCompletionHandler(aRun); 
+            }];
         }
-        
-    } else {
-        NSException *exception = nil;
-        
-        [self setValue:aRun forKey:@"run"];
-        [self setUp];
-        [aRun start];
-        
-        @try {
-            [[self invocation] invoke];
-        }
-        @catch (NSException *anException) {
-            exception = anException;
-        }
-        
-        [aRun stop];
-        [self tearDown];
-        
-        if (exception != nil) {
-            [self performSelector:@selector(logException:) withObject:exception];
-        }
-        
-        [self setValue:nil forKey:@"run"];
-        
-        aCompletionHandler(aRun);
-    }
+    }];
 }
 
 - (void)asyncFailWithException:(NSException *)anException;
@@ -151,10 +168,12 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
             }
             
             [testRun stop];
-            [self tearDown];
-            [self setValue:nil forKey:@"run"];
-            
-            aCompletionHandler(testRun);
+            [self tearDownWithCompletionHandler:^{
+                [self tearDown];
+                [self setValue:nil forKey:@"run"];
+                
+                aCompletionHandler(testRun);
+            }];
         });
     }
 }
@@ -210,8 +229,10 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
         }];
     } else {
         [aTestRun stop];
-        [self tearDown];
-        aCompletionHandler(aTestRun);
+        [self tearDownWithCompletionHandler:^{
+            [self tearDown];
+            aCompletionHandler(aTestRun);
+        }];
     }
 }
 
