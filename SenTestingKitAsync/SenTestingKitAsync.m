@@ -93,12 +93,13 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
 {
     __unsafe_unretained SenTestCase *weak = self;
     
+    __block NSException *exception = nil;
+    
+    [weak setValue:aRun forKey:@"run"];
+    [weak setUp];
+    
     [self setUpWithCompletionHandler:^{
-       
-        NSException *exception = nil;
         
-        [weak setValue:aRun forKey:@"run"];
-        [weak setUp];
         [aRun start];
         
         if ([NSStringFromSelector([[weak invocation] selector]) hasSuffix:@"Async"]) {
