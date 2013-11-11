@@ -82,4 +82,21 @@
     STFail(@"Fail immediately.");
 }
 
+- (void)testFailIfException
+{
+    NSAssert(NO, @"");
+    STFail(@"this should fail");
+}
+
+- (void)testFailIfExceptionAsync
+{
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        NSAssert(NO, @"");
+        STFail(@"this should fail");
+    });
+
+    STFailAfter(3, @"timed out");
+}
+
 @end

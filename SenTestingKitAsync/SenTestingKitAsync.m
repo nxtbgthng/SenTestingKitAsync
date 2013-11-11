@@ -79,7 +79,7 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
                         method_getImplementation(oldMethod),
                         method_getTypeEncoding(oldMethod));
     }
-    
+
     Method newMethod = class_getInstanceMethod([self class], @selector(asyncFailWithException:));
     if (newMethod) {
         class_replaceMethod(objc_getClass(class_getName(self)),
@@ -92,27 +92,27 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
 - (void)performTest:(SenTestRun *)aRun withCompletionHandler:(SenTestCompletionHandler)aCompletionHandler;
 {
     __unsafe_unretained SenTestCase *weak = self;
-    
+
     __block NSException *exception = nil;
-    
+
     [weak setValue:aRun forKey:@"run"];
     [weak setUp];
-    
+
     [self setUpWithCompletionHandler:^{
-        
+
         [aRun start];
-        
+
         if ([NSStringFromSelector([[weak invocation] selector]) hasSuffix:@"Async"]) {
             weak.testRun = aRun;
             weak.completionHandler = aCompletionHandler;
-            
+
             @try {
                 [[weak invocation] invoke];
             }
             @catch (NSException *anException) {
                 exception = anException;
             }
-            
+
             if (exception != nil) {
                 [aRun stop];
                 [weak tearDownWithCompletionHandler:^{
@@ -124,7 +124,7 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
                     weak.completionHandler = nil;
                 }];
             }
-            
+
         } else {
             @try {
                 [[weak invocation] invoke];
@@ -132,19 +132,19 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
             @catch (NSException *anException) {
                 exception = anException;
             }
-            
-            [aRun stop];
-            
+
+
             [weak tearDownWithCompletionHandler:^{
                 [weak tearDown];
-                
+
                 if (exception != nil) {
                     [weak performSelector:@selector(logException:) withObject:exception];
                 }
-                
+                [aRun stop]; // this has to be called *after* we call logException otherwise the exception won't be logged
+
                 [weak setValue:nil forKey:@"run"];
-                
-                aCompletionHandler(aRun); 
+
+                aCompletionHandler(aRun);
             }];
         }
     }];
@@ -160,19 +160,19 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
         SenTestCompletionHandler aCompletionHandler = self.completionHandler;
         self.completionHandler = nil;
         dispatch_async(dispatch_get_main_queue(), ^{
-            
+
             SenTestRun *testRun = self.testRun;
             self.testRun = nil;
-            
+
             if (anException != nil) {
                 [self performSelector:@selector(logException:) withObject:anException];
             }
-            
+
             [testRun stop];
             [self tearDownWithCompletionHandler:^{
                 [self tearDown];
                 [self setValue:nil forKey:@"run"];
-                
+
                 aCompletionHandler(testRun);
             }];
         });
@@ -207,9 +207,9 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
 {
     [self setUp];
     [aTestRun start];
-    
+
     NSEnumerator *testEnumerator = [[self valueForKey:@"tests"] objectEnumerator];
-    
+
     [self performTestRun:aTestRun
       withTestEnumerator:testEnumerator
        completionHandler:aCompletionHandler];
@@ -220,7 +220,7 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
      completionHandler:(SenTestCompletionHandler)aCompletionHandler
 {
     SenTest *aTest = [aTestEnumerator nextObject];
-    
+
     if (aTest) {
         [aTest runWithCompletionHandler:^(SenTestRun *run) {
             [(SenTestSuiteRun *)aTestRun addTestRun:run];
@@ -258,16 +258,16 @@ typedef void(^SenTestCompletionHandler)(SenTestRun *run);
     @autoreleasepool {
         [[NSBundle allFrameworks] makeObjectsPerformSelector:@selector(principalClass)];
         [SenTestObserver class];
-        
+
         NSRunLoop *mainRunLoop = [NSRunLoop mainRunLoop];
-        
+
         dispatch_async(dispatch_get_main_queue(), ^{
             [[self specifiedTestSuite] runWithCompletionHandler:^(SenTestRun *run) {
                 BOOL hasFailed = [run hasSucceeded];
                 exit((int)hasFailed);
             }];
         });
-        
+
         [mainRunLoop run];
     }
 }
