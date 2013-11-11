@@ -15,7 +15,6 @@
 		F6B78911169B545C00034660 /* libSenTestingKitAsynciOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B788F8169B545C00034660 /* libSenTestingKitAsynciOS.a */; };
 		F6B78917169B545C00034660 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6B78915169B545C00034660 /* InfoPlist.strings */; };
 		F6B7891A169B545C00034660 /* SenTestingKitAsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B78919169B545C00034660 /* SenTestingKitAsyncTests.m */; };
-		F6B78927169B608400034660 /* SenTestingKitAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B78902169B545C00034660 /* SenTestingKitAsync.m */; };
 		F6F77D4F1712EAA9008727C6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B7890A169B545C00034660 /* SenTestingKit.framework */; };
 		F6F77D7D1712F334008727C6 /* SenTestingKitAsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B78919169B545C00034660 /* SenTestingKitAsyncTests.m */; };
 		F6F77D7F1712F655008727C6 /* SenTestingKitAsync.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6B78900169B545C00034660 /* SenTestingKitAsync.h */; };
@@ -363,7 +362,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6B78927169B608400034660 /* SenTestingKitAsync.m in Sources */,
 				F6B7891A169B545C00034660 /* SenTestingKitAsyncTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
